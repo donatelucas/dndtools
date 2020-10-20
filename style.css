@@ -1,11 +1,4 @@
-.container {
+.container, .result, .button, .footer {
     text-align: center;
 }
 
-.result {
-    
-}
-
-.button {
-    text-align: center;
-}

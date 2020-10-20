@@ -16,17 +16,21 @@ buttonOnClick = function(event) {
     result();
 }
 
-function randomizeRace(){
-    let result = kalimshorRaces[Math.floor(Math.random()*kalimshorRaces.length)];
+function raceRandomizer(){
+    let result = randomizeRace(kalimshorRaces);
     if (result === "Rare"){
-       return result = otherRaces[Math.floor(Math.random()*otherRaces.length)]
+        console.log("Rare result!");
+       return randomizeRace(rareRaces);
+    } else if (result === "Very Rare"){
+        console.log("Very Rare!");
+        return randomizeRace(veryRareRaces);
     } else {
         return result;
     }
 }
 
-function randomizeRareRace(){
-    return otherRaces[Math.floor(Math.random()*otherRaces.length)];
+function randomizeRace(arrayName){
+    return arrayName[Math.floor(Math.random()*arrayName.length)];
 }
 
 const kalimshorRaces = [
@@ -42,35 +46,43 @@ const kalimshorRaces = [
     "Rare"
 ]
 
-const otherRaces = [
+const rareRaces = [
     "Tabaxi",
-    "Tiefling",
-    "Aasimar",
-    "Triton",
+    "Tiefling",  
     "Dragonborn",
     "Warforged",
-    "Lizardfolk",
-    "Kenku",
     "Hobgoblin",
     "Firbolg",
-    "Genasi",
-    "Goliath",
     "Bugbear",
     "Aarakroca",
+    "Kobold",
+    "Goblin", 
+    "Centaur",
+    "Minotaur",
+    "Very Rare",
+    "Very Rare",
+    "Very Rare"
+    // Intentionally repeating for increasing chances, without this we have just 0.013% vs 0.23%
+    
+]
+
+const veryRareRaces = [
+    "Triton",
+    "Aasimar",
+    "Lizardfolk",
+    "Genasi",
+    "Goliath",
+    "Kenku",
     "Leonin",
     "Satyr",
-    "Kobold",
-    "Goblin",
     "Yuan-ti Pureblood",
     "Tortle",
+    "Verdan",
+    "Grung",
+    "Locathah",
     "Changeling",
     "Kalashtar",
     "Shifter",
     "Gith",
-    "Centaur",
-    "Minotaur", 
-    "Verdan",
-    "Grung",
-    "Locathah",
     "Gemlings (Kalimshor Unique)"
 ]
