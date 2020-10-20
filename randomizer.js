@@ -19,11 +19,11 @@ buttonOnClick = function(event) {
 function raceRandomizer(){
     let result = randomizeRace(kalimshorRaces);
     if (result === "Rare"){
-        console.log("Rare result!");
-       return randomizeRace(rareRaces);
-    } else if (result === "Very Rare"){
-        console.log("Very Rare!");
-        return randomizeRace(veryRareRaces);
+        result = randomizeRace(rareRaces)
+        if (result === "Very Rare") {
+            return randomizeRace(veryRareRaces);
+        }
+        return result;
     } else {
         return result;
     }
@@ -56,9 +56,7 @@ const rareRaces = [
     "Bugbear",
     "Aarakroca",
     "Kobold",
-    "Goblin", 
-    "Centaur",
-    "Minotaur",
+    "Goblin",
     "Very Rare",
     "Very Rare",
     "Very Rare"
@@ -84,5 +82,7 @@ const veryRareRaces = [
     "Kalashtar",
     "Shifter",
     "Gith",
+    "Centaur",
+    "Minotaur",
     "Gemlings (Kalimshor Unique)"
 ]
