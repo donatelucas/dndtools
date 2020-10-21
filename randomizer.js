@@ -1,20 +1,14 @@
 console.log("See ya, Space Cowboy");
 
-var buttonOnClick = document.querySelector("button").onclick;
+var btn = document.getElementById("button");
+
+function getResult(){
+    document.getElementById("result").innerHTML = raceRandomizer(); // Working as intended
+}
 
 function rand(){ // 0 to 100 randomization
     return Math.floor((Math.random() * 100) + 1);
-}
-
-function result(){
-    var result = document.getElementById("result");
-    
-    result.value = "Your result is: " + rand();
-}
-
-buttonOnClick = function(event) {
-    result();
-}
+} 
 
 function raceRandomizer(){
     let result = randomizeRace(kalimshorRaces);
@@ -23,7 +17,7 @@ function raceRandomizer(){
         if (result === "Very Rare") {
             return randomizeRace(veryRareRaces);
         }
-        return result;
+        return result;  
     } else {
         return result;
     }
@@ -86,3 +80,8 @@ const veryRareRaces = [
     "Minotaur",
     "Gemlings (Kalimshor Unique)"
 ]
+
+btn.addEventListener('click', getResult());
+btn.onClick = function () {
+    getResult();
+}
